@@ -9,10 +9,71 @@
     </head>
     <body>
         Insertar:
-        <form action="#" th:action="@{/insertAthlete}" th:object="${athlete}" method="post">
-            <label for="fullName">Name</label>
-            <input type="text" th:field="*{fullName}" id="fullName">
-             <input type="submit" value="Add Athlete">
+        <h4>Add Athlete</h4>
+        <form class="row col-12" action="#" th:action="@{/insertAthlete}" th:object="${athlete}" method="post">
+            <div class="row col-12">
+                <div class="col-md-3">
+                    <label for="fullName" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="fullName" th:field="*{fullName}">
+                </div>
+
+                <div class="col-md-3">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" th:field="*{lastName}">
+                </div>
+            </div>
+
+            <div class="row col-12" style="margin-top: 20px">
+                <div class="col-md-3">
+                    <label for="secondLastName" class="form-label">Second Last Name</label>
+                    <input type="text" class="form-control" id="secondLastName" th:field="*{secondLastName}">
+                </div>
+
+                <div class="col-md-3">
+                    <label for="dateOfBirth" class="form-label">Date of Birth</label>
+                    <input type="datetime-local" class="form-control" id="dateOfBirth" th:field="*{dateOfBirth}">
+                </div>
+            </div>
+
+            <div class="row col-12" style="margin-top: 20px">
+                <div class="col-md-3">
+                    <label for="phoneNumber" class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" id="phoneNumber" th:field="*{phoneNumber}">
+                </div>
+
+                <div class="col-md-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" th:field="*{email}">
+                </div>
+            </div>
+
+            <div class="row col-12" style="margin-top: 20px">
+                <div class="col-md-3">
+                    <label for="province" class="form-label">Province</label>
+                    <input type="text" class="form-control" id="province" th:field="*{address.province}">
+                </div>
+
+                <div class="col-md-3">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" id="city" th:field="*{address.city}">
+                </div>
+            </div>
+
+            <div class="row col-12" style="margin-top: 20px">
+                <div class="col-md-3">
+                    <label for="district" class="form-label">District</label>
+                    <input type="text" class="form-control" id="district" th:field="*{address.district}">
+                </div>
+            </div>
+
+            <div class="row col-12" style="margin-top: 20px">
+                <div class="col-4" >
+                    <button type="submit" class="btn btn-primary">Add New Athlete</button>
+                </div>
+                <div class="col-4">
+                    <a th:href="@{/}"><button type="button" class="btn btn-primary" >Back to Home</button></a>
+                </div>
+            </div>
         </form>
 
         <script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
