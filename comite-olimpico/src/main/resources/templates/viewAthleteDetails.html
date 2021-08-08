@@ -1,0 +1,89 @@
+<!doctype html>
+    <html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.6.0-1/css/bootstrap.min.css} "/>
+
+        <meta charset="utf-8"></meta>
+        <meta http-equiv="Content-Type" content="text/html"></meta>
+        <title>Anthologies</title>
+    </head>
+    <body>
+        <h3>View Athlete Details</h3>
+        <form class="row col-12" action="#">
+            <div class="row col-12" style="margin-top: 40px">
+                <div class="col-md-3">
+                    <label for="fullName" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="fullName" th:value="${athlete.getFullName()}">
+                </div>
+
+                <div class="col-md-3">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" th:value="${athlete.getLastName()}">
+                </div>
+            </div>
+
+            <div class="row col-12" style="margin-top: 20px">
+                <div class="col-md-3">
+                    <label for="secondLastName" class="form-label">Second Last Name</label>
+                    <input type="text" class="form-control" id="secondLastName" th:value="${athlete.getSecondLastName()}">
+                </div>
+
+                <div class="col-md-3">
+                    <label for="height" class="form-label">Height</label>
+                    <input type="text" class="form-control" id="height" th:value="${athleteDetails.getHeight()}">
+                </div>
+            </div>
+
+            <div class="row col-12" style="margin-top: 20px">
+                <div class="col-md-3">
+                    <label for="weight" class="form-label">Weight</label>
+                    <input type="text" class="form-control" id="weight" th:value="${athleteDetails.getWeight()}">
+                </div>
+
+                <div class="col-md-3">
+                    <label for="gender" class="form-label">Gender</label>
+                    <input type="text" class="form-control" id="gender" th:value="${athleteDetails.getGender()}">
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px">Body Mass Index History </h3>
+            <div class="row col-12" style="margin-top: 20px">
+                <ul class="list-group col-md-6" style="margin-left: 20px">
+                    <div th:each="BMI : ${bmiHistory}">
+                        <li class="list-group-item">
+                            <table>
+                                <td>
+                                    <div class="container">
+                                        <h2>
+                                        <span th:text="${BMI.getBmiValue()}">
+                                            Indece de Masa Corporal
+                                        </span>
+                                        </h2>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="container">
+                                        <span th:text="${BMI.getMeasurementDate()}">
+                                            Fecha de Medida
+                                        </span>
+                                    </div>
+                                </td>
+                            </table>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+
+            <div class="row col-12" style="margin-top: 20px">
+                <div class="col-4">
+                    <a th:href="@{/}"><button type="button" class="btn btn-primary" >Back to Home</button></a>
+                </div>
+            </div>
+        </form>
+
+
+        <script th:src="@{webjars/jquery/3.5.1/jquery.js}"></script>
+        <script th:src="@{webjars/popper.js/1.16.0/umd/popper.js}"></script>
+        <script th:src="@{webjars/bootstrap/4.6.0-1/js/bootstrap.js}"></script>
+    </body>
+</html>

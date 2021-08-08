@@ -8,8 +8,8 @@ import java.util.List;
 public class AthleteDetailsBuilderImpl implements AthleteDetailsBuilder {
 
     private String sport;
-    private Long height;
-    private Long weight;
+    private Double height;
+    private Double weight;
     private String gender;
     private List<BodyMassIndex> bodyMassIndexArrayList;
 
@@ -20,7 +20,7 @@ public class AthleteDetailsBuilderImpl implements AthleteDetailsBuilder {
     }
 
     @Override
-    public AthleteDetailsBuilderImpl height(Long height) {
+    public AthleteDetailsBuilderImpl height(Double height) {
         this.height = height;
         return this;
     }
@@ -50,7 +50,6 @@ public class AthleteDetailsBuilderImpl implements AthleteDetailsBuilder {
         athleteDetails.setHeight(this.height);
         athleteDetails.setWeight(this.weight);
         athleteDetails.setGender(this.gender);
-        athleteDetails.setBodyMassIndexArrayList(this.bodyMassIndexArrayList);
         return null;
     }
 }

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.6.0-1/css/bootstrap.min.css} "/>
+		<meta charset="utf-8"></meta>
+		<meta http-equiv="Content-Type" content="text/html"></meta>
+	<title>Athletes</title>
+	</head>
+	<body style="margin: 0">
+		<h1 class="col-3">List of Athletes </h1>
+		<ul class="list-group col-8">
+			<div th:each="athlete : ${athletes}">
+				<li class="list-group-item">
+					<table>
+						<td>
+							<div class="container">
+								<h4>
+								<span th:text="${athlete.getFullName()}">
+									Nombre
+								</span>
+									<span th:text="${athlete.getLastName()}">
+									Nombre
+								</span>
+									<span th:text="${athlete.getSecondLastName()}">
+									Nombre
+								</span>
+								</h4>
+							</div>
+						</td>
+						<td>
+							<div class="container">
+								<a th:href="@{/insert-details(athleteId=${athlete.id})}">
+									<button type="button" class="btn btn-primary">Insert Athlete Details</button>
+								</a>
+							</div>
+						</td>
+						<td>
+							<div class="container">
+								<a th:href="@{/update-details(athleteId=${athlete.id})}">
+									<button type="button" class="btn btn-primary">Update Athlete Details</button>
+								</a>
+							</div>
+						</td>
+						<td>
+							<div class="container">
+								<a th:href="@{/view-details(athleteId=${athlete.id})}">
+									<button type="button" class="btn btn-primary">View Athlete Details</button>
+								</a>
+							</div>
+						</td>
+					</table>
+				</li>
+			</div>
+		</ul>
+		<a th:href="@{/}"><button type="button" class="btn btn-primary" style="margin-top: 30px">Back to Home</button></a>
+		<script th:src="@{webjars/jquery/3.5.1/jquery.js}"></script>
+		<script th:src="@{webjars/popper.js/1.16.0/umd/popper.js}"></script>
+		<script th:src="@{webjars/bootstrap/4.6.0-1/js/bootstrap.js}"></script>
+	</body>
+</html>

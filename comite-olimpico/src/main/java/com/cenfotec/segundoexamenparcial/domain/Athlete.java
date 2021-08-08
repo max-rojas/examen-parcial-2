@@ -2,9 +2,11 @@ package com.cenfotec.segundoexamenparcial.domain;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import java.time.LocalDate;
 
 @Entity
@@ -23,6 +25,9 @@ public class Athlete {
 
     @Embedded
     private Address address;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    private AthleteDetails athleteDetails;
 
     public Athlete(){}
 
@@ -95,6 +100,14 @@ public class Athlete {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public AthleteDetails getAthleteDetails() {
+        return athleteDetails;
+    }
+
+    public void setAthleteDetails(AthleteDetails athleteDetails) {
+        this.athleteDetails = athleteDetails;
     }
 
     @Override

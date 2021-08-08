@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import java.util.List;
 
 @Entity
@@ -16,21 +17,23 @@ public class AthleteDetails {
     private Long id;
 
     private String sport;
-    private Long height;
-    private Long weight;
+    private Double height;
+    private Double weight;
     private String gender;
 
     @OneToMany(fetch= FetchType.LAZY, mappedBy="athleteDetails")
     private List<BodyMassIndex> bodyMassIndexArrayList;
 
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "athleteDetails")
+    private Athlete athlete;
+
     public AthleteDetails(){}
 
-    public AthleteDetails(String sport, Long height, Long weight, String gender, List<BodyMassIndex> bodyMassIndexArrayList) {
+    public AthleteDetails(String sport, Double height, Double weight, String gender) {
         this.sport = sport;
         this.height = height;
         this.weight = weight;
         this.gender = gender;
-        this.bodyMassIndexArrayList = bodyMassIndexArrayList;
     }
 
     public Long getId() {
@@ -49,19 +52,19 @@ public class AthleteDetails {
         this.sport = sport;
     }
 
-    public Long getHeight() {
+    public Double getHeight() {
         return height;
     }
 
-    public void setHeight(Long height) {
+    public void setHeight(Double height) {
         this.height = height;
     }
 
-    public Long getWeight() {
+    public Double getWeight() {
         return weight;
     }
 
-    public void setWeight(Long weight) {
+    public void setWeight(Double weight) {
         this.weight = weight;
     }
 
@@ -77,9 +80,18 @@ public class AthleteDetails {
         return bodyMassIndexArrayList;
     }
 
-    public void setBodyMassIndexArrayList(List<BodyMassIndex> bodyMassIndexArrayList) {
-        this.bodyMassIndexArrayList = bodyMassIndexArrayList;
+    public void addBodyMassIndexMeasurement(BodyMassIndex newBodyMassIndex) {
+        this.bodyMassIndexArrayList.add(newBodyMassIndex);
     }
+
+    public Athlete getAthlete() {
+        return athlete;
+    }
+
+    public void setAthlete(Athlete athlete) {
+        this.athlete = athlete;
+    }
+
 
     @Override
     public String toString() {

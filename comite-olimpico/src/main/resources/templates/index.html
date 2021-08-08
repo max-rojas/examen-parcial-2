@@ -1,17 +1,24 @@
 <!doctype html>
-<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="utf-8"></meta>
-<meta http-equiv="Content-Type" content="text/html"></meta>
-<title>Atletas</title>
-</head>
-<body>
-	<div>
-		<h1>Administracion de Atletas</h1>
-		<ul>
-			<li><a href="/insertar">insertar</a></li>
-			<li><a href="/listar">listar</a></li>
-		</ul>
-	</div>
-</body>
+	<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.6.0-1/css/bootstrap.min.css} "/>
+		<meta charset="utf-8"></meta>
+		<meta http-equiv="Content-Type" content="text/html"></meta>
+	<title>Atletas</title>
+	</head>
+	<body>
+		<div>
+			<h1>Administracion de Atletas</h1>
+			<ul>
+				<button type="button" class="btn btn-primary" onclick="location.href='/insertAthlete';">Insert Athlete</button>
+				<button type="button" class="btn btn-primary" onclick="location.href='/listAthletes';">List Athletes</button>
+	<!--			<input type="button" onclick="location.href='/insertAthlete';" value="Insert Athlete" />-->
+	<!--			<input type="button" onclick="location.href='/listAthletes';" value="List Athletes" />-->
+			</ul>
+		</div>
+
+		<script th:src="@{webjars/jquery/3.5.1/jquery.js}"></script>
+		<script th:src="@{webjars/popper.js/1.16.0/umd/popper.js}"></script>
+		<script th:src="@{webjars/bootstrap/4.6.0-1/js/bootstrap.js}"></script>
+	</body>
 </html>

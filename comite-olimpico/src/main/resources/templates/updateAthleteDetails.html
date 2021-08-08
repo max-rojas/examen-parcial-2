@@ -1,0 +1,51 @@
+<!doctype html>
+    <html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.6.0-1/css/bootstrap.min.css} "/>
+
+        <meta charset="utf-8"></meta>
+        <meta http-equiv="Content-Type" content="text/html"></meta>
+        <title>Anthologies</title>
+    </head>
+    <body>
+        <h4>Athlete Details Form</h4>
+        <form class="row col-12" action="#" th:action="@{/update-details(athleteId=${athleteId})}" th:object="${athleteDetails}" method="post">
+            <div class="row col-12">
+                <div class="col-md-3">
+                    <label for="sport" class="form-label">Sport</label>
+                    <input type="text" class="form-control" id="sport" th:field="*{sport}">
+                </div>
+
+                <div class="col-md-3">
+                    <label for="height" class="form-label">Height</label>
+                    <input type="text" class="form-control" id="height" th:field="*{height}">
+                </div>
+            </div>
+
+            <div class="row col-12" style="margin-top: 20px">
+                <div class="col-md-3">
+                    <label for="weight" class="form-label">Weight</label>
+                    <input type="text" class="form-control" id="weight" th:field="*{weight}">
+                </div>
+
+                <div class="col-md-3">
+                    <label for="gender" class="form-label">Gender</label>
+                    <input type="text" class="form-control" id="gender" th:field="*{gender}">
+                </div>
+            </div>
+
+            <div class="row col-12" style="margin-top: 20px">
+                <div class="col-4" >
+                    <button type="submit" class="btn btn-primary">Update Athlete Details</button>
+                </div>
+                <div class="col-4">
+                    <a th:href="@{/}"><button type="button" class="btn btn-primary" >Back to Home</button></a>
+                </div>
+            </div>
+        </form>
+
+        <script th:src="@{webjars/jquery/3.5.1/jquery.js}"></script>
+        <script th:src="@{webjars/popper.js/1.16.0/umd/popper.js}"></script>
+        <script th:src="@{webjars/bootstrap/4.6.0-1/js/bootstrap.js}"></script>
+    </body>
+</html>

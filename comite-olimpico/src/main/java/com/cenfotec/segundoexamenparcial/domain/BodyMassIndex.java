@@ -15,7 +15,7 @@ public class BodyMassIndex {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Long value;
+    private Double bmiValue;
     private LocalDate measurementDate;
 
     @ManyToOne
@@ -23,17 +23,17 @@ public class BodyMassIndex {
 
     public BodyMassIndex(){}
 
-    public BodyMassIndex(Long value, LocalDate measurementDate) {
-        this.value = value;
+    public BodyMassIndex(Double bmiValue, LocalDate measurementDate) {
+        this.bmiValue = bmiValue;
         this.measurementDate = measurementDate;
     }
 
-    public Long getValue() {
-        return value;
+    public Double getBmiValue() {
+        return bmiValue;
     }
 
-    public void setValue(Long value) {
-        this.value = value;
+    public void setBmiValue(Double value) {
+        this.bmiValue = value;
     }
 
     public LocalDate getMeasurementDate() {
@@ -44,11 +44,21 @@ public class BodyMassIndex {
         this.measurementDate = measurementDate;
     }
 
+    public AthleteDetails getAthleteDetails() {
+        return athleteDetails;
+    }
+
+    public void setAthleteDetails(AthleteDetails athleteDetails) {
+        this.athleteDetails = athleteDetails;
+    }
+
     @Override
     public String toString() {
         return "BodyMassIndex{" +
-                "value=" + value +
+                "id=" + id +
+                ", bmiValue=" + bmiValue +
                 ", measurementDate=" + measurementDate +
+                ", athleteDetails=" + athleteDetails +
                 '}';
     }
 }
